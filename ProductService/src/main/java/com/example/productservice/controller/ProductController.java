@@ -45,7 +45,7 @@ public class ProductController {
     public ResponseEntity<OrderRepository> orderProductByUser(@PathVariable Integer id,
                                                               @PathVariable Integer productId) {
         OrderRepository orderRepository= new OrderRepository();
-        String url = "http://localhost:8801/api/v2/user/" + id;
+        String url = "http://localhost:8801/api/v1/user/" + id;
         ResponseEntity<User> response = restTemplate.getForEntity(url, User.class);
         Optional<Product> optional = productRepository.findById(productId);
         Product product = null;
