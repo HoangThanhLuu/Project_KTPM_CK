@@ -1,7 +1,7 @@
 package com.iuh.user.controller;
 
 import com.iuh.user.entity.User;
-import com.iuh.user.repository.UserRedisReponse;
+// import com.iuh.user.repository.UserRedisReponse;
 import com.iuh.user.repository.UserRepository;
 import com.iuh.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +18,8 @@ public class UserController {
     UserService userService;
     @Autowired
     UserRepository userRepository;
-    @Autowired
-    UserRedisReponse userRedisReponse;
+//    @Autowired
+//    UserRedisReponse userRedisReponse;
 
     //lấy danh sách user
     @GetMapping("/user")
