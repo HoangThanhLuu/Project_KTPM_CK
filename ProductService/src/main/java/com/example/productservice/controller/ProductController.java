@@ -3,6 +3,7 @@ package com.example.productservice.controller;
 import com.example.productservice.enity.Product;
 import com.example.productservice.enity.User;
 import com.example.productservice.repository.OrderRepository;
+import com.example.productservice.repository.ProductRedisReponse;
 import com.example.productservice.repository.ProductRepository;
 import com.example.productservice.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +23,10 @@ public class ProductController {
     ProductService productService;
     @Autowired
     RestTemplate restTemplate;
-
     @Autowired
     ProductRepository productRepository;
-
+    @Autowired
+    ProductRedisReponse productRedisReponse;
 
     @GetMapping("/product")
     public List<Product> findAllProduct() {
