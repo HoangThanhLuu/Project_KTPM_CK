@@ -17,24 +17,28 @@ public class UserController {
     UserService userService;
     @Autowired
     UserRepository userRepository;
+
+    //lấy danh sách user
     @GetMapping("/user")
     public List<User> getAllUser(){
         List<User> listUser = new ArrayList<>();
         listUser = userService.findAllUser();
         return listUser;
     }
+    //them 1 user
     @PostMapping("/user")
     public User addUser(@RequestBody User user) {
         userService.addUser(user);
         return user;
     }
+    // tìm user theo id
     @GetMapping("/user/{id}")
     public User findByIdUser(@PathVariable Integer id){
         Optional<User>optional = userRepository.findById(id);
         User user = null;
-        if (optional.isPresent()){
+        if (optional.isPresent()) {
             user = optional.get();
-        }else {
+        } else {
             new RuntimeException("Không có User theo Id này");
         }
         return user;
