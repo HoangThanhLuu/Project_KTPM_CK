@@ -12,11 +12,15 @@ spring:
               - PUT
               - DELETE
       routes:
-        - id: product
+        - id: AuthService
+          uri: http://localhost:8080
+          predicates:
+            - Path=/api/auth/**
+        - id: ProductService
           uri: http://localhost:8802
           predicates:
             - Path=/api/v2/**
-        - id: user
+        - id: UserService
           uri: http://localhost:8801
           predicates:
             - Path=/api/v1/**
