@@ -1,4 +1,10 @@
+server:
+  port: 8803
+
 spring:
+  application:
+    name: API_Gateway
+
   cloud:
     gateway:
       globalcors:
@@ -12,15 +18,24 @@ spring:
               - PUT
               - DELETE
       routes:
-        - id: AuthService
+        - id: auth-service
           uri: http://localhost:8080
           predicates:
             - Path=/api/auth/**
-        - id: ProductService
+        - id: product-service
           uri: http://localhost:8802
           predicates:
             - Path=/api/v2/**
-        - id: UserService
+        - id: user-service
           uri: http://localhost:8801
           predicates:
             - Path=/api/v1/**
+      discovery:
+        locator:
+          enabled: true
+  eureka:
+    client:
+      serviceUrl:
+        defaultZone: http://localhost:8761/eureka/
+      register-with-eureka: true
+      fetch-registry: true

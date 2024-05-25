@@ -4,3 +4,8 @@ eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
+cloud :
+  gateway:
+    discovery:
+      locator:
+        enabled: true
